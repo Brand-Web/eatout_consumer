@@ -1,5 +1,11 @@
+import Head from "./ui/Head";
+
 function RestaurantHome() {
-    return ( <div>resto hfdfome</div> );
+    return ( <main className="">
+         <Head/>
+    </main> );
 }
 
 export default  RestaurantHome;
+
+

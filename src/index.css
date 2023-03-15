@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+   
+}
+
+.shw{
+    box-shadow: 1px 1px 3px 0.3px rgba(0, 0, 0, 0.278);
+}
+
+.a1{
+    animation: food 5s linear infinite !important;
+    font-size: 50px;
+}
+.a2{
+    animation: food 8s linear infinite !important;
+    font-size: 50px;
+
+
+}
+.a3{
+    animation: food 4s linear infinite !important;
+    font-size: 30px;
+}
+.a4{
+    animation: food 9s linear infinite !important;
+    font-size: 40px;
+}
+.a5{
+    animation: food 10s linear infinite !important;
+    font-size: 70px;
+}
+.a6{
+    font-size: 57px;
+    animation: food 7s linear infinite !important;
+
+}
+
+@keyframes food {
+    0% {
+        transform: translateY(200px);
+        opacity: 0%;
+       
+    }
+    50% {
+        opacity: 40%;
+    }
+    100% {
+        transform: translateY(-40px);
+        opacity: 10%;
+    }
+    
+}
