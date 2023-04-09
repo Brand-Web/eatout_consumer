@@ -1,5 +1,5 @@
 
-import { CallIcon, CartIcon, HomeIcon, MenuIcon } from "@icons/index"
+import { CallIcon, CartIcon, HomeIcon, MealIcon, MenuIcon } from "@icons/index"
 import { Outlet } from "react-router-dom"
 import IconLottie from "@components/iconLottie"
 
@@ -66,6 +66,10 @@ const BottomNav = () => {
         <button className="active">
             <HomeIcon />
         </button>
+        <button>
+            <MealIcon />
+        </button>
+
         <button>
             <div className="bg-primary rounded-full p-3 text-2xl drop-shadow-lg">
                 <CartIcon />
