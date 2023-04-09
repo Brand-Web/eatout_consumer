@@ -18,21 +18,20 @@
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@pages/*": ["./src/pages/*"],
+      "@views/*": ["./src/views/*"],
       "@utils/*": ["./src/utils/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@context/*": ["./src/context/*"],
       "@assets/*": ["./src/assets/*"],
-      "@styles/*": ["./src/styles/*"],
       "@types/*": ["./src/types/*"],
-      "@api/*": ["./src/api/*"],
-      "@store/*": ["./src/store/*"],
-      "@locales/*": ["./src/locales/*"],
       "@constants/*": ["./src/constants/*"],
-      "@services/*": ["./src/services/*"],
-      "@data/*": ["./src/data/*"],
-      "@models/*": ["./src/models/*"],
+      "@apis/*": ["./src/apis/*"],
+      "@store/*": ["./src/store/*"],
+      "@icons/*": ["./src/components/icons/*"],
+
     }
+ 
   },
-  "include": ["src"],
+  "include": ["./src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
