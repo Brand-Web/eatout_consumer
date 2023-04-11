@@ -11,7 +11,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="/129310" />
+        element: <Navigate to="/abdc1234" />
       },
       {
         path: ":restoId",

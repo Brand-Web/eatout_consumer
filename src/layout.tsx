@@ -1,14 +1,11 @@
 
 import { CallIcon, CartIcon, HomeIcon, MealIcon, MenuIcon } from "@icons/index"
 import { Outlet } from "react-router-dom"
-import IconLottie from "@components/iconLottie"
 
-
-import home from "@assets/home.json"
-import search from "@assets/search.json"
-import cart from "@assets/cart.json"
-import profile from "@assets/profile.json"
+import { useInit } from "./hooks"
 const Layout = () => {
+
+    useInit()
     return (
         <div className="drawer drawer-mobile">
             <input id="menu" type="checkbox" className="drawer-toggle" />
@@ -80,3 +77,4 @@ const BottomNav = () => {
         </button>
     </div>
 }
+
