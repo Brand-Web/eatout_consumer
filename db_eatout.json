@@ -1,0 +1,85 @@
+{
+    "category": [
+        {
+            "id": 1,
+            "name": "Pizza",
+            "image": "https://img.icons8.com/arcade/64/null/salami-pizza.png",
+            "description": "lorem ipsum dolor sit amet",
+            "restoId": "abcd1234"
+        },
+        {
+            "id": 2,
+            "name": "Burger",
+            "image": "https://img.icons8.com/arcade/64/null/cheeseburger.png",
+            "description": "lorem ipsum dolor sit amet",
+            "restoId": "abcd1234"
+        },
+        {
+            "id": 3,
+            "name": "Pasta",
+            "image": "https://img.icons8.com/arcade/64/null/spaghetti.png",
+            "description": "lorem ipsum dolor sit amet",
+            "restoId": "abcd1234"
+        },
+        {
+            "id": 10,
+            "name": "Drinks",
+            "image": "https://img.icons8.com/arcade/64/null/beer.png",
+            "description": "lorem ipsum dolor sit amet",
+            "restoId": "abcd1234"
+        },
+        {
+            "id": 11,
+            "name": "Dessert",
+            "image": "https://img.icons8.com/arcade/64/null/dessert.png",
+            "description": "lorem ipsum dolor sit amet",
+            "restoId": "abcd1234"
+        },
+        {
+            "id": 12,
+            "name": "Snack",
+            "image": "https://img.icons8.com/arcade/64/null/popcorn.png",
+            "description": "lorem ipsum dolor sit amet",
+            "restoId": "abcd1234"
+        },
+        {
+            "id": 13,
+            "name": "Salad",
+            "image": "https://img.icons8.com/arcade/64/null/salad.png",
+            "description": "lorem ipsum dolor sit amet",
+            "restoId": "abcd1234"
+        },
+        {
+            "id": 14,
+            "name": "Coffee",
+            "image": "https://img.icons8.com/arcade/64/null/coffee.png",
+            "description": "lorem ipsum dolor sit amet",
+            "restoId": "abcd1234"
+        }
+    ],
+    "deal": [
+        {
+            "id": 3,
+            "name": "Fea Food",
+            "image": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/seafood-promotion-twitter-post-design-template-4fafdf7698bc32d36a3dc1d93974d256_screen.jpg?ts=1662714052",
+            "description": "The Lorm alphabet is a method of tactile signing named after Hieronymus Lorm, who developed it in the late 19th century. Letters are spelled by tapping or stroking different parts of the listener's hand.",
+            "restoId": "abcd1234"
+        },
+        {
+            "id": 2,
+            "name": "Special Food",
+            "image": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/food-banner-design-template-99c7a727f249fa0688bef3cc52a58b5f_screen.jpg?ts=1679396194",
+            "description": "The Lorm alphabet is a method of tactile signing named after Hieronymus Lorm, who developed it in the late 19th century. Letters are spelled by tapping or stroking different parts of the listener's hand.",
+            "restoId": "abcd1234"
+        },
+        {
+            "id": 1,
+            "name": "It is time for pizza",
+            "image": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/it%27s-time-for-pizza-facebook-ad-design-template-cf86241ef0b278ae30198015aef78f0d_screen.jpg?ts=1595188892",
+            "description": "The Lorm alphabet is a method of tactile signing named after Hieronymus Lorm, who developed it in the late 19th century. Letters are spelled by tapping or stroking different parts of the listener's hand.",
+            "restoId": "abcd1234"
+        }
+    ],
+    "extra": [],
+    "product": []
+}
