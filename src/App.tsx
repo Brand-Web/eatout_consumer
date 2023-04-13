@@ -1,8 +1,12 @@
-import '@/index.css'
-import Layout from '@/layout';
-import Home from '@views/home';
-import Tracker from '@views/tracker';
-import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import "@/index.css";
+import Layout from "@/layout";
+import Home from "@views/home";
+import Tracker from "@views/tracker";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -11,28 +15,26 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="/abdc1234" />
+        element: <Navigate to="/abcd1234" />,
       },
       {
         path: ":restoId",
-        element: <Home />
-      }
-    ]
+        element: <Home />,
+      },
+    ],
   },
   {
     path: "/tracker",
     element: <Tracker />,
-  }
+  },
 ]);
-
 
 function App() {
   return (
     <main>
       <RouterProvider router={router} />
     </main>
-  )
+  );
 }
 
-export default App
-
+export default App;

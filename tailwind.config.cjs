@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -12,26 +9,28 @@ module.exports = {
         accent: "#F0F4F7",
         secondary: "#ffffff",
         "text-light": "#4A5B6F",
-        text: "#0B0B0B"
+        text: "#0B0B0B",
       },
       padding: {
-        content: "1.5rem"
+        content: "1.5rem",
       },
       margin: {
-        content: "1.5rem"
-      }
+        content: "1.5rem",
+      },
     },
   },
 
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("tailwind-scrollbar-hide")],
   daisyui: {
-    themes: [{
-      mytheme: {
-        primary: "#FFCB54",
-        secondary: "#0B0B0B",
-        accent: "#F0F4F7",
-        neutral: "#3d4451",
+    themes: [
+      {
+        mytheme: {
+          primary: "#FFCB54",
+          secondary: "#0B0B0B",
+          accent: "#F0F4F7",
+          neutral: "#3d4451",
+        },
       },
-    }, ],
+    ],
   },
-}
+};
