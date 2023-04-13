@@ -1,16 +1,19 @@
 import ProductCard from "@/components/ProductCard";
 import { FavIcon } from "@/components/icons";
+import Layout from "@/components/ui/layout";
 import { useDataStore } from "@/state/data";
 import React from "react";
 
 const Home = () => {
   return (
-    <main className="p-content space-y-6 mb-20">
-      <Search />
-      <CategorySection />
-      <DealSection />
-      <Popular />
-    </main>
+    <Layout>
+      <main className="p-content space-y-6 mb-20">
+        <Search />
+        <CategorySection />
+        <DealSection />
+        <Popular />
+      </main>
+    </Layout>
   );
 };
 

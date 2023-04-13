@@ -1,40 +1,17 @@
-import "@/index.css";
-import Layout from "@/layout";
-import Home from "@views/home";
-import Tracker from "@views/tracker";
-import {
-  Navigate,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Navigate to="/abcd1234" />,
-      },
-      {
-        path: ":restoId",
-        element: <Home />,
-      },
-    ],
-  },
-  {
-    path: "/tracker",
-    element: <Tracker />,
-  },
-]);
+import { Outlet } from "react-router-dom";
+import { useInit } from "./hooks";
 
 function App() {
+  useInit();
   return (
     <main>
-      <RouterProvider router={router} />
+      <Outlet />
     </main>
   );
 }
 
 export default App;
+
+export const TableView = () => {
+  return <Outlet />;
+};

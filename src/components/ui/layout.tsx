@@ -7,15 +7,19 @@ import {
 } from "@/components/icons";
 import { Outlet } from "react-router-dom";
 
-import { useInit } from "./hooks";
-const Layout = () => {
+import { useInit } from "../../hooks";
+
+interface Props {
+  children: React.ReactNode;
+}
+const Layout = ({ children }: Props) => {
   useInit();
   return (
     <div className="drawer drawer-mobile">
       <input id="menu" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content relative bg-back">
         <NavBar />
-        <Outlet />
+        {children}
         <BottomNav />
       </div>
       <div className="drawer-side">
