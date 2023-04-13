@@ -1,7 +1,12 @@
+import Layout from "@/components/ui/layout";
 import React from "react";
 
 const ProductsView = () => {
-  return <div>ProductsView</div>;
+  return (
+    <Layout>
+      <div>ProductsView</div>
+    </Layout>
+  );
 };
 
 export default ProductsView;

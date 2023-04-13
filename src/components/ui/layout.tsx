@@ -5,9 +5,10 @@ import {
   MealIcon,
   MenuIcon,
 } from "@/components/icons";
-import { Outlet } from "react-router-dom";
-
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import cx from "classnames";
 import { useInit } from "../../hooks";
+import { useState } from "react";
 
 interface Props {
   children: React.ReactNode;
@@ -66,12 +67,21 @@ const NavBar = () => {
 };
 
 const BottomNav = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const path = location.pathname;
   return (
     <div className="btm-nav bg-white text-xl text-text">
-      <button className="active">
+      <button
+        onClick={() => navigate("home")}
+        className={path.includes("home") ? "active" : ""}
+      >
         <HomeIcon />
       </button>
-      <button>
+      <button
+        onClick={() => navigate("products")}
+        className={path.includes("products") ? "active" : ""}
+      >
         <MealIcon />
       </button>
 
