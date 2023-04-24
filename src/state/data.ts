@@ -1,4 +1,5 @@
 import { API } from "@/api";
+import { Product } from "@/models";
 import axios from "axios";
 import { create } from "zustand";
 
@@ -20,16 +21,6 @@ export interface Extra {
   restoId: string;
 }
 
-export interface Product {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  categoryId: number;
-  restoId: string;
-  ingredients: string[];
-}
 
 interface CategoryState {
   categories: Category[];

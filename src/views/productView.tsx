@@ -1,10 +1,12 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Extra, Product, useDataStore } from "@/state/data";
+import { Extra, useDataStore } from "@/state/data";
 import { BackIcon, CartIcon } from "@/components/icons";
 import { useEffect, useState } from "react";
 
 import cx from "classnames";
 import { toast } from "react-hot-toast";
+import { Product } from "@/models";
+import { useUserStore } from "@/state/user";
 const ProductDetails = () => {
   const { productId } = useParams();
   const product = useDataStore(state => state.getProduct(productId ? parseInt(productId) : undefined))
@@ -42,7 +44,7 @@ const ProductDetails = () => {
           Ingredients
         </h6>
         <div className="flex flex-wrap gap-3 p-content">
-          {product.ingredients.map((ingredient, i) => <span key={i} className="text-text/60 text-xs font-bold bg-accent p-1 px-3 rounded-xl">{ingredient}</span>)}
+          {product.ingredients?.map((ingredient, i) => <span key={i} className="text-text/60 text-xs font-bold bg-accent p-1 px-3 rounded-xl">{ingredient}</span>)}
         </div>
       </div>
       <div className="divider"></div>
@@ -69,10 +71,32 @@ const AddToBack = (props: { product: Product }) => {
   const [quantity, setQuantity] = useState(1)
 
   const [total, setTotal] = useState(props.product.price)
-
+  const nav = useNavigate()
+  const back = () => {
+    nav(-1)
+  }
   useEffect(() => {
-    setTotal(props.product.price * quantity + selectedExtra.reduce((acc, extra) => acc + extra.price, 0))
+    setTotal((props.product.price  + selectedExtra.reduce((acc, extra) => acc + extra.price, 0)) * quantity)
   }, [props.product.price, selectedExtra, quantity])
+
+const addToCart=useUserStore(state=>state.addToCart)
+
+const onAdd=()=>{
+
+  try {
+    addToCart(
+      props.product,
+      quantity,
+      selectedExtra
+    )
+    toast.success("Commande ajouté au panier")
+    back()
+  } catch (error) {
+    toast.error("Erreur lors de l'ajout au panier")
+  }
+
+}
+
   return <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-content space-y-3">
 
     <div className="flex flex-row gap-2 overflow-scroll -mx-content  scrollbar-hide ">
@@ -118,7 +142,7 @@ const AddToBack = (props: { product: Product }) => {
           <span className="text-text/80">{quantity}</span>
           <button onClick={() => setQuantity(quantity + 1)} className="btn btn-ghost btn-sm bg-accent">+</button>
         </div>
-        <button className="btn btn-primary space-x-2">
+        <button onClick={onAdd} className="btn btn-primary space-x-2">
        <div className="flex flex-row gap-1 items-center text-lg">
        {total} <span className="text-[10px]">MAD</span>
        </div>

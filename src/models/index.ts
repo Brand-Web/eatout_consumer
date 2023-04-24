@@ -14,8 +14,10 @@ export interface Product{
     name: string;
     image: string;
     price: number;
+    description: string;
+    categoryId: number;
+    restoId: string;
     //Optional
-    description?: string;
     idCategory?:string,
     categorie?: Category;
     star?: number;

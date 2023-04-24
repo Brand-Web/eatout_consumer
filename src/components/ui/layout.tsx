@@ -9,6 +9,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import cx from "classnames";
 import { useInit } from "../../hooks";
 import { useState } from "react";
+import { useUserStore } from '@/state/user';
 
 interface Props {
   children: React.ReactNode;
@@ -70,6 +71,7 @@ const BottomNav = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const path = location.pathname;
+  const length=useUserStore(state=>state.cart.length)
   return (
     <div className="btm-nav bg-white text-xl text-text">
       <button
@@ -86,8 +88,15 @@ const BottomNav = () => {
       </button>
 
       <button>
-        <div className="bg-primary rounded-full p-3 text-2xl drop-shadow-lg">
+        <div className="bg-primary rounded-full p-3 text-2xl drop-shadow-lg relative">
           <CartIcon />
+        
+            <span className={cx("absolute -top-1 -right-1 bg-accent rounded-full w-4 h-4 text-xs text-text flex items-center justify-center",{
+              "hidden":!Boolean(length)
+            })}>
+              {length}
+            </span>
+         
         </div>
       </button>
       <button>
