@@ -1,6 +1,7 @@
 import { Product } from "@/models";
 import { Extra } from "./data";
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 interface CartItem {
     product: Product;
@@ -14,6 +15,7 @@ interface UserState {
     total: number;
     addToCart: (product: Product, quantity: number,extra:Extra[]) => void;
     removeFromCart: (id: number) => void;
+
   }
 
   const hasSameExtra=(a:Extra[],b:Extra[])=>{
@@ -23,34 +25,40 @@ interface UserState {
     }
     return true;
   }
-    export const useUserStore = create<UserState>((set, get) => ({
-        cart: [],
-        total: 0,
-        addToCart: (product:Product, quantity:number,extra:Extra[]) => {
-
-            const cart = get().cart;
-            const index = cart.findIndex((c) => c.product.id === product.id);
-            if (index === -1) {
-                cart.push({ product, quantity,extra });
-            } else {
-                if(!hasSameExtra(cart[index].extra,extra)){
+    export const useUserStore = create<UserState>(
+      //  persist<UserState>(
+            (set, get) => ({
+            cart: [],
+            total: 0,
+            addToCart: (product:Product, quantity:number,extra:Extra[]) => {
+    
+                const cart = get().cart;
+                const index = cart.findIndex((c) => c.product.id === product.id);
+                if (index === -1) {
                     cart.push({ product, quantity,extra });
+                } else {
+                    if(!hasSameExtra(cart[index].extra,extra)){
+                        cart.push({ product, quantity,extra });
+                    }
+                    else
+                    cart[index].quantity += quantity;
                 }
-                else
-                cart[index].quantity += quantity;
+                set({ cart });
             }
-            set({ cart });
-        }
-        ,
-        removeFromCart: (id) => {
-            const cart = get().cart;
-            const index = cart.findIndex((c) => c.product.id === id);
-            if (index !== -1) {
-                cart.splice(index, 1);
+            ,
+            removeFromCart: (id) => {
+                const cart = get().cart;
+                const index = cart.findIndex((c) => c.product.id === id);
+                if (index !== -1) {
+                    cart.splice(index, 1);
+                }
+                set({ cart });
             }
-            set({ cart });
-        }
-    }));
+        }),
+    //         {
+    //     name: 'user-eatout-storage', // unique name // (optional) by default, 'localStorage' is used
+    //   })
+      );
 // Compare this snippet from src/state/user.ts:
 
 useUserStore.subscribe(

@@ -7,25 +7,18 @@ import cx from "classnames";
 import { toast } from "react-hot-toast";
 import { Product } from "@/models";
 import { useUserStore } from "@/state/user";
+import Back from "@/components/back";
 const ProductDetails = () => {
   const { productId } = useParams();
   const product = useDataStore(state => state.getProduct(productId ? parseInt(productId) : undefined))
-  const nav = useNavigate()
-  const back = () => {
-    nav(-1)
-  }
+  
   if (!product) return <div>Product not found</div>
 
   return <div className="bg-primary">
     <AddToBack product={product} />
     <div className="relative flex flex-col gap-1 items-center">
       <div className="flex flex-row items-center justify-between p-content w-full">
-        <button onClick={back}
-          className="btn btn-ghost drawer-button lg:hidden bg-white"
-        >
-          <BackIcon className="text-2xl text-text " />
-
-        </button>
+        <Back/>
         <div></div>
       </div>
       <div className="w-[50vw] h-[50vw] overflow-hidden rounded-full z-[2] relative border-white border-[7px] shadow-2xl">
@@ -97,7 +90,7 @@ const onAdd=()=>{
 
 }
 
-  return <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-content space-y-3">
+  return <div className="fixed bottom-0 left-0 w-full bg-white shadow-md p-content space-y-3 rounded-tl-2xl rounded-tr-2xl">
 
     <div className="flex flex-row gap-2 overflow-scroll -mx-content  scrollbar-hide ">
       {extra.map((extra) => {

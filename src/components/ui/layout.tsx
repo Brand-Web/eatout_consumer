@@ -5,7 +5,7 @@ import {
   MealIcon,
   MenuIcon,
 } from "@/components/icons";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import cx from "classnames";
 import { useInit } from "../../hooks";
 import { useState } from "react";
@@ -72,6 +72,13 @@ const BottomNav = () => {
   const navigate = useNavigate();
   const path = location.pathname;
   const length=useUserStore(state=>state.cart.length)
+  const { restoId, tableId } = useParams();
+
+  const handleGoToCart = () => {
+    navigate(`/${restoId}/${tableId}/cart`);
+  };
+
+ 
   return (
     <div className="btm-nav bg-white text-xl text-text">
       <button
@@ -87,7 +94,7 @@ const BottomNav = () => {
         <MealIcon />
       </button>
 
-      <button>
+      <button onClick={handleGoToCart}>
         <div className="bg-primary rounded-full p-3 text-2xl drop-shadow-lg relative">
           <CartIcon />
         
