@@ -15,6 +15,7 @@ import ProductDetails from "./views/productView";
 import ScannerView from "./views/scannerView";
 import ProductsView from "./views/productsView";
 import CartView from "./views/cartView";
+import  { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
@@ -65,5 +66,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <Toaster />
   </React.StrictMode>
 );

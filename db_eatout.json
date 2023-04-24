@@ -81,7 +81,41 @@
         }
     ],
     "extra": [
-    
+        {
+            "id":1,
+            "name":"Frites",
+            "image":"https://img.icons8.com/arcade/64/null/french-fries--v1.png",
+            "restoId":"abcd1234",
+            "price":5
+        },
+        {
+            "id":2,
+            "name":"Samurai",
+            "image":"https://img.icons8.com/arcade/64/null/dressing.png",
+            "restoId":"abcd1234",
+            "price":0
+        },
+        {
+            "id":3,
+            "name":"Algérienne",
+            "image":"https://img.icons8.com/arcade/64/null/dressing.png",
+            "restoId":"abcd1234",
+            "price":0
+        },
+        {
+            "id":4,
+            "name":"Algérienne",
+            "image":"https://img.icons8.com/arcade/64/null/dressing.png",
+            "restoId":"abcd1234",
+            "price":0
+        },
+        {
+            "id":5,
+            "name":"Lemonade",
+            "image":"https://img.icons8.com/arcade/64/null/lemonade.png",
+            "restoId":"abcd1234",
+            "price":9
+        }
     ],
       
     "product": [

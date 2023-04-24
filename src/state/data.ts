@@ -36,7 +36,11 @@ interface CategoryState {
   deals: Deal[];
   extra: Extra[];
   products: Product[];
-  init: (restoId: string, callBack: () => void) => void;
+  restoId?:string,
+  tableId?:number,
+  init: (restoId: string,table:number|undefined, callBack: () => void) => void;
+  toProductPage: (id: number) => string;
+  getProduct: (id: number|undefined) => Product | undefined;
 }
 
 const product: Product = {
@@ -54,12 +58,25 @@ const product: Product = {
 };
 
 export const useDataStore = create<CategoryState>()(
-  devtools((set) => ({
+  devtools((set,get) => ({
     categories: [],
     deals: [],
     extra: [],
     products: [],
-    init: (restoId, callBack) => {
+    restoId:undefined,
+    tableId:undefined,
+    getProduct: (id) => {
+      return get().products.find((p) => p.id === id);
+    },
+    toProductPage: (id) => {
+
+     if(get().restoId && get().tableId){
+      const {restoId,tableId}=get()
+      return `/${restoId}/${tableId}/product/${id}`;
+     }
+      return `/`;
+    },
+    init: (restoId,tableId, callBack) => {
       axios
         .all([
           axios.get<Category[]>(`${API}/category?restoId=${restoId}`),
@@ -71,8 +88,11 @@ export const useDataStore = create<CategoryState>()(
           axios.spread((categories, deals, products, extra) => {
             // output of req.
             set({
+              restoId,
+              tableId,
               categories: categories.data,
               deals: deals.data,
+
               products: [
                 product,
                 product,
