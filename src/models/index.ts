@@ -1,3 +1,4 @@
+import { Extra } from "@/state/data";
 
 
 export interface Category{
@@ -30,4 +31,35 @@ export interface Product{
     availableUntil?: Date;
 
     //Methods
+}
+
+export type OrderStatusType = "pending" | "accepted"  | "canceled" | "preparing" | "ready" | "served"|"rejected";
+export interface Status<StatusType>{
+    id: string;
+    type: StatusType;
+    date: Date;
+
+}
+export interface Order{
+    id: string;
+    numero?: number;
+    date: Date;
+    note?: string;
+    //
+    idUser: string;
+    idResto: string;
+    idTable: string;
+
+    //
+    totalPrice: number;
+    commandes:{
+        quantity: number;
+        extra: Extra[];
+        product: Product;
+    }
+
+    logs: Status<OrderStatusType>[];
+    status:  Status<OrderStatusType>;
+
+
 }
