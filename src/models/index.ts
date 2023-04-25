@@ -35,7 +35,7 @@ export interface Product{
 
 export type OrderStatusType = "pending" | "accepted"  | "canceled" | "preparing" | "ready" | "served"|"rejected";
 export interface Status<StatusType>{
-    id: string;
+
     type: StatusType;
     date: Date;
 
@@ -51,12 +51,12 @@ export interface Order{
     idTable: string;
 
     //
-    totalPrice: number;
+    total: number;
     commandes:{
         quantity: number;
         extra: Extra[];
         product: Product;
-    }
+    }[]
 
     logs: Status<OrderStatusType>[];
     status:  Status<OrderStatusType>;

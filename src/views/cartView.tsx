@@ -1,6 +1,6 @@
 import Back from "@/components/back";
 import { CheckIcon, MealIcon, MenuIcon, RemoveIcon } from "@/components/icons";
-import { useUserStore } from "@/state/user";
+import { useIdStore, useUserStore } from "@/state/user";
 import React, { useRef, useState } from "react";
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import emptyAnimation from "@assets/empty.json";
@@ -8,16 +8,22 @@ import cx from "classnames";
 import LottieFile from "@/components/lottie";
 import { useLocation, useNavigate } from "react-router-dom";
 import { BiMessageAltAdd, BiMessageAltDetail } from "react-icons/bi";
+import { useDataStore } from "@/state/data";
 const tva = 0
 const CartView = () => {
-
-  const { cart: items, removeFromCart, total } = useUserStore()
+const {restoId,tableId}=useDataStore()
+const id=useIdStore(state=>state.id)
+  const { cart: items, removeFromCart, total,sendOrder } = useUserStore()
   const [animationRef] = useAutoAnimate()
 
   const location = useLocation()
   const nav = useNavigate()
   const goToMenu = () => {
     nav(location.pathname.replaceAll('cart', 'menu'))
+  }
+  const onValidate = () => {
+    if(restoId&&tableId)
+    sendOrder(id,restoId,tableId.toString())
   }
   return <>
     <div className="bg-accent p-content h-screen w-screen space-y-10">
@@ -99,7 +105,9 @@ const CartView = () => {
       </div>
 
       <div className="w-full flex justify-center items-center">
-        <button className={cx("btn btn-primary mx-auto rounded-full px-10 gap-3"
+        <button
+        onClick={onValidate}
+        className={cx("btn btn-primary mx-auto rounded-full px-10 gap-3"
         )}>
           <CheckIcon className="text-lg" />
           Valider
