@@ -16,6 +16,7 @@ import ScannerView from "./views/scannerView";
 import ProductsView from "./views/productsView";
 import CartView from "./views/cartView";
 import  { Toaster } from 'react-hot-toast';
+import ProductsViewInside from "./views/productsViewInside";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,19 @@ const router = createBrowserRouter([
           },
           {
             path: "products",
-            element: <ProductsView />,
+            children:[
+              {
+                index:true,
+
+                element: <ProductsView />,
+
+              },
+              {
+                path:"inside",
+                element: <ProductsViewInside/>
+
+              }
+            ]
           },
           {
             path: "cart",

@@ -81,10 +81,13 @@ const BottomNav = () => {
   const handleGoToProducts = () => {
     navigate(`/${restoId}/${tableId}/products`);
   };
+  const handleGoToHome = () => {
+    navigate(`/${restoId}/${tableId}/home`);
+  };
   return (
     <div className="btm-nav bg-white text-xl text-text z-[1000]">
       <button
-        onClick={() => navigate("home")}
+        onClick={handleGoToHome}
         className={path.includes("home") ? "active" : ""}
       >
         <HomeIcon />
