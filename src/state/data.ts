@@ -32,6 +32,7 @@ interface CategoryState {
   init: (restoId: string,table:number|undefined, callBack: () => void) => void;
   toProductPage: (id: number) => string;
   getProduct: (id: number|undefined) => Product | undefined;
+  
 }
 
 const product: Product = {

@@ -23,13 +23,13 @@ const SearchBar = () => {
         <div key={i} style={{
           backgroundImage: `url(${cat.image})`,
           //bg-blend-exclusion
-        }} className="card h-[160px] relative bg-primary/[10%] bg-center bg-no-repeat 
+        }} className="card h-[160px] relative bg-primary/[30%] bg-center bg-no-repeat 
         bg-blend-exclusion
-         flex flex-col justify-between p-2">
+        border  flex flex-col justify-between p-2">
           <label className="badge">
             {products.filter(p => p.categoryId === cat.id).length}
           </label>
-          <h3 className="text-primary text-2xl font-bold self-center drop-shadow-sm">
+          <h3 className="text-text text-2xl font-bold self-center">
             {cat.name}
           </h3>
         </div>
