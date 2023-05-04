@@ -78,17 +78,22 @@ const BottomNav = () => {
     navigate(`/${restoId}/${tableId}/cart`);
   };
 
- 
+  const handleGoToProducts = () => {
+    navigate(`/${restoId}/${tableId}/products`);
+  };
+  const handleGoToHome = () => {
+    navigate(`/${restoId}/${tableId}/home`);
+  };
   return (
-    <div className="btm-nav bg-white text-xl text-text">
+    <div className="btm-nav bg-white text-xl text-text z-[]">
       <button
-        onClick={() => navigate("home")}
+        onClick={handleGoToHome}
         className={path.includes("home") ? "active" : ""}
       >
         <HomeIcon />
       </button>
       <button
-        onClick={() => navigate("products")}
+        onClick={handleGoToProducts}
         className={path.includes("products") ? "active" : ""}
       >
         <MealIcon />
